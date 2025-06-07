@@ -74,35 +74,37 @@ public class RobotContainer {
                 .onTrue(new PrintCommand("USER Button Pressed"))
                 .onFalse(new PrintCommand("USER Button Released"));
 
+        // A button: Arm to 45 degrees while held, 0 degrees when released
         Trigger joystickAButton = m_controller.a();
         joystickAButton
                 .onTrue(new InstantCommand(() -> m_arm.setAngle(45.0), m_arm))
                 .onFalse(new InstantCommand(() -> m_arm.setAngle(0.0), m_arm));
 
+        // B button: Arm to 90 degrees while held, 0 degrees when released
         Trigger joystickBButton = m_controller.b();
         joystickBButton
                 .onTrue(new InstantCommand(() -> m_arm.setAngle(90.0), m_arm))
                 .onFalse(new InstantCommand(() -> m_arm.setAngle(0.0), m_arm));
 
-        // Setup SmartDashboard options
+        // Setup SmartDashboard options for autonomous routines
         m_chooser.setDefaultOption("Auto Routine Distance", new AutonomousDistance(m_drivetrain));
         m_chooser.addOption("Auto Routine Time", new AutonomousTime(m_drivetrain));
         SmartDashboard.putData(m_chooser);
     }
 
     /**
-     * Use this to pass the autonomous command to the main {@link Robot} class.
+     * Returns the selected autonomous command from the SmartDashboard chooser to the main {@link Robot} class.
      *
-     * @return the command to run in autonomous
+     * @return the command to run in autonomous mode
      */
     public Command getAutonomousCommand() {
         return m_chooser.getSelected();
     }
 
     /**
-     * Use this to pass the teleop command to the main {@link Robot} class.
+     * Returns the default teleop driving command (arcade drive) to the main {@link Robot} class.
      *
-     * @return the command to run in teleop
+     * @return the command to run in teleop mode
      */
     public Command getArcadeDriveCommand() {
         return new ArcadeDrive(

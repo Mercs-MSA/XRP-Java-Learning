@@ -37,10 +37,8 @@ public class Robot extends TimedRobot {
      * like diagnostics
      * that you want ran during disabled, autonomous, teleoperated and test.
      *
-     * <p>
      * This runs after the mode specific periodic functions, but before LiveWindow
-     * and
-     * SmartDashboard integrated updating.
+     * and SmartDashboard integrated updating.
      */
     @Override
     public void robotPeriodic() {
@@ -82,6 +80,7 @@ public class Robot extends TimedRobot {
     public void autonomousPeriodic() {
     }
 
+    /** This function is called once each time the robot enters Teleop mode. */
     @Override
     public void teleopInit() {
         // This makes sure that the autonomous stops running when
@@ -98,6 +97,7 @@ public class Robot extends TimedRobot {
     public void teleopPeriodic() {
     }
 
+    /** This function is called once each time the robot enters Test mode. */
     @Override
     public void testInit() {
         // Cancels all running commands at the start of test mode.
@@ -109,7 +109,7 @@ public class Robot extends TimedRobot {
     public void testPeriodic() {
     }
 
-    /** This function is called once when the robot is first started up. */
+    /** This function is called once when the robot is first started up in the Simulator. */
     @Override
     public void simulationInit() {
     }
