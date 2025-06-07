@@ -119,3 +119,25 @@ public class Robot extends TimedRobot {
     public void simulationPeriodic() {
     }
 }
+
+/**
+ * 
+ * 1. What is the purpose of the RobotContainer in this class, and when is it instantiated?
+ * 
+ * 2. What does the robotPeriodic() method do, and why is it important for the Command-based framework?
+ * 
+ * 3. What happens in the autonomousInit() method?
+ * 
+ * 4. Why is m_autonomousCommand.cancel(); called in teleopInit()?
+ * 
+ * 5. What is the purpose of the testInit() method?
+ * 
+ * 6. Which method is called every 20 ms, regardless of the robot mode?
+ * 
+ * 7. What would happen if you removed the call to CommandScheduler.getInstance().run(); from robotPeriodic()?
+ * 
+ * 8. What is the difference between autonomousPeriodic() and teleopPeriodic()?
+ * 
+ * 9. How does the robot know which autonomous command to run?
+ * 
+ */
