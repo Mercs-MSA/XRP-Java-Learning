@@ -12,6 +12,12 @@ Finally, read through and follow the steps for the last page: [Programming the X
 
 
 
+### Lesson Helpers
+
+When looking at code in the VS Code application, there is a built in tool called Intellisense which has the ability to show documentation about functions, classes, variable types, and more by just hovering your mouse cursor over the text you want to learn more about. This taps directly into the documentation found here: [WPILib Java Docs](https://github.wpilib.org/allwpilib/docs/release/java/index.html). But the documentation can also be used on it's own as a website directory for all aspects of the code. Using Intellisense and the search feature of the documentation website are two powerful tools in understanding what a line of code does.
+
+
+
 ### Lesson 1 - Understanding Robot.java
 
 Estimated time: 30 minutes
