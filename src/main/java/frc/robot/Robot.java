@@ -16,9 +16,11 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
  * this project, you must also update the Main.java file in the project.
  */
 public class Robot extends TimedRobot {
-    private Command m_autonomousCommand;
+    // BLANK 1: What type should go here?
+    private _______ m_autonomousCommand;
 
-    private final RobotContainer m_robotContainer;
+    // BLANK 2: What is the type of this field?
+    private final _______ m_robotContainer;
 
     /**
      * This function is run when the robot is first started up and should be used
@@ -26,10 +28,8 @@ public class Robot extends TimedRobot {
      * initialization code.
      */
     public Robot() {
-        // Instantiate our RobotContainer. This will perform all our button bindings,
-        // and put our
-        // autonomous chooser on the dashboard.
-        m_robotContainer = new RobotContainer();
+        // BLANK 3: What should be instantiated here?
+        m_robotContainer = new __________();
     }
 
     /**
@@ -42,14 +42,8 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void robotPeriodic() {
-        // Runs the Scheduler. This is responsible for polling buttons, adding
-        // newly-scheduled
-        // commands, running already-scheduled commands, removing finished or
-        // interrupted commands,
-        // and running subsystem periodic() methods. This must be called from the
-        // robot's periodic
-        // block in order for anything in the Command-based framework to work.
-        CommandScheduler.getInstance().run();
+        // BLANK 4: What method must be called here for the Command-based framework to work?
+        ________________.getInstance().________();
     }
 
     /** This function is called once each time the robot enters Disabled mode. */
@@ -67,11 +61,13 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void autonomousInit() {
-        m_autonomousCommand = m_robotContainer.getAutonomousCommand();
+        // BLANK 5: How do you get the autonomous command from RobotContainer?
+        m_autonomousCommand = m_robotContainer.________________________();
 
         // schedule the autonomous command (example)
         if (m_autonomousCommand != null) {
-            m_autonomousCommand.schedule();
+            // BLANK 6: How do you schedule a command?
+            m_autonomousCommand.________();
         }
     }
 
@@ -88,7 +84,8 @@ public class Robot extends TimedRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (m_autonomousCommand != null) {
-            m_autonomousCommand.cancel();
+            // BLANK 7: How do you cancel a command?
+            m_autonomousCommand.________();
         }
     }
 
@@ -100,8 +97,8 @@ public class Robot extends TimedRobot {
     /** This function is called once each time the robot enters Test mode. */
     @Override
     public void testInit() {
-        // Cancels all running commands at the start of test mode.
-        CommandScheduler.getInstance().cancelAll();
+        // BLANK 8: How do you cancel all running commands at the start of test mode?
+        ________________.getInstance().__________();
     }
 
     /** This function is called periodically during test mode. */

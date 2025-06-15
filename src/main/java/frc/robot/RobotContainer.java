@@ -34,25 +34,33 @@ import frc.robot.Constants.OperatorConstants;
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-    // The robot's subsystems and commands are defined here...
-    private final Drivetrain m_drivetrain = new Drivetrain();
-    private final XRPOnBoardIO m_onboardIO = new XRPOnBoardIO();
-    private final Rangefinder m_rangefinder = new Rangefinder();
-    private final ReflectanceSensor m_reflectanceSensor = new ReflectanceSensor();
-    private final Arm m_arm = new Arm();
+    // What is the type and constructor for the drivetrain subsystem?
+    private final _________ m_drivetrain = new _________();
 
-    // Assumes a gamepad plugged into channel 0
-    private final CommandXboxController m_controller = new CommandXboxController(OperatorConstants.kDriverControllerPort);
+    // What is the type and constructor for the onboard IO subsystem?
+    private final _________ m_onboardIO = new _________();
 
-    // Create SmartDashboard chooser for autonomous routines
-    private final SendableChooser<Command> m_chooser = new SendableChooser<>();
+    // What is the type and constructor for the rangefinder sensor?
+    private final _________ m_rangefinder = new _________();
+
+    // What is the type and constructor for the reflectance sensor?
+    private final _________ m_reflectanceSensor = new _________();
+
+    // What is the type and constructor for the arm subsystem?
+    private final _________ m_arm = new _________();
+
+    // What is the type and constructor for the Xbox controller used for operator input?
+    private final _________ m_controller = new _________(OperatorConstants.kDriverControllerPort);
+
+    // What is the type and constructor for the SmartDashboard autonomous routine chooser?
+    private final _________ m_chooser = new _________<>();
 
     /**
      * The container for the robot. Contains subsystems, OI devices, and commands.
      */
     public RobotContainer() {
-        // Configure the button bindings
-        configureButtonBindings();
+        // What method should be called in the constructor to set up button bindings?
+        __________();
     }
 
     /**
@@ -64,9 +72,8 @@ public class RobotContainer {
      * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
      */
     private void configureButtonBindings() {
-        // Default command is arcade drive. This will run unless another command
-        // is scheduled over it.
-        m_drivetrain.setDefaultCommand(getArcadeDriveCommand());
+        // What method sets the default command for the drivetrain subsystem?
+        m_drivetrain.______________(getArcadeDriveCommand());
 
         // Example of how to use the onboard IO
         Trigger userButton = new Trigger(m_onboardIO::getUserButtonPressed);
@@ -74,22 +81,24 @@ public class RobotContainer {
                 .onTrue(new PrintCommand("USER Button Pressed"))
                 .onFalse(new PrintCommand("USER Button Released"));
 
-        // A button: Arm to 45 degrees while held, 0 degrees when released
-        Trigger joystickAButton = m_controller.a();
+        // What method gets the A button trigger from the Xbox controller?
+        Trigger joystickAButton = m_controller.___();
         joystickAButton
                 .onTrue(new InstantCommand(() -> m_arm.setAngle(45.0), m_arm))
                 .onFalse(new InstantCommand(() -> m_arm.setAngle(0.0), m_arm));
 
-        // B button: Arm to 90 degrees while held, 0 degrees when released
-        Trigger joystickBButton = m_controller.b();
+        // What method gets the B button trigger from the Xbox controller?
+        Trigger joystickBButton = m_controller.___();
         joystickBButton
                 .onTrue(new InstantCommand(() -> m_arm.setAngle(90.0), m_arm))
                 .onFalse(new InstantCommand(() -> m_arm.setAngle(0.0), m_arm));
 
-        // Setup SmartDashboard options for autonomous routines
-        m_chooser.setDefaultOption("Auto Routine Distance", new AutonomousDistance(m_drivetrain));
-        m_chooser.addOption("Auto Routine Time", new AutonomousTime(m_drivetrain));
-        SmartDashboard.putData(m_chooser);
+        // What method sets the default autonomous option in the chooser?
+        m_chooser.______________________("Auto Routine Distance", new AutonomousDistance(m_drivetrain));
+        // What method adds an additional autonomous option to the chooser?
+        m_chooser.__________("Auto Routine Time", new AutonomousTime(m_drivetrain));
+        // What method puts the chooser on the SmartDashboard?
+        SmartDashboard.________(m_chooser);
     }
 
     /**
@@ -98,7 +107,8 @@ public class RobotContainer {
      * @return the command to run in autonomous mode
      */
     public Command getAutonomousCommand() {
-        return m_chooser.getSelected();
+        // What method gets the selected autonomous command from the chooser?
+        return m_chooser.__________();
     }
 
     /**
@@ -107,7 +117,8 @@ public class RobotContainer {
      * @return the command to run in teleop mode
      */
     public Command getArcadeDriveCommand() {
-        return new ArcadeDrive(
-                m_drivetrain, () -> -m_controller.getLeftY(), () -> -m_controller.getRightX());
+        // What is the name of the command class used for arcade drive, and what methods get the left Y and right X values from the controller?
+        return new _________(
+                m_drivetrain, () -> -m_controller._________(), () -> -m_controller._________());
     }
 }
